@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="lvyang.mybaties.mybatiesdemo.mapper.StudentMapper" >
+  <resultMap id="BaseResultMap" type="lvyang.mybaties.mybatiesdemo.entity.Student" >
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="kecheng" property="kecheng" jdbcType="VARCHAR" />
+    <result column="fenshu" property="fenshu" jdbcType="INTEGER" />
+  </resultMap>
+  <insert id="insert" parameterType="lvyang.mybaties.mybatiesdemo.entity.Student" >
+    insert into student (name, kecheng, fenshu
+      )
+    values (#{name,jdbcType=VARCHAR}, #{kecheng,jdbcType=VARCHAR}, #{fenshu,jdbcType=INTEGER}
+      )
+  </insert>
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select name, kecheng, fenshu
+    from student
+  </select>
+  <select id="getStudentByID" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select name, kecheng, fenshu
+    from student
+    where name=#{id}
+  </select>
+
+</mapper>
