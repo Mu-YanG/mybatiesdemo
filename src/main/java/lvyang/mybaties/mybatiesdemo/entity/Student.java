@@ -1,6 +1,9 @@
 package lvyang.mybaties.mybatiesdemo.entity;
 
-public class Student {
+import java.io.Serializable;
+
+public class Student implements Serializable {
+
     private String name;
 
     private String kecheng;
